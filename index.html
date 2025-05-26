@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu PWA</title>
 
-  <!-- Manifesto do app -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#317EFB"/>
+  <!-- Manifesto PWA -->
+  <link rel="manifest" href="manifest.json" />
 
-  <!-- Ícones para Android/iOS -->
-  <link rel="icon" sizes="192x192" href="icons/icon-192.png">
+  <!-- Ícones para iOS -->
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Meu PWA" />
+
+  <!-- Cor da barra de endereço -->
+  <meta name="theme-color" content="#2b2b2b" />
 </head>
 <body>
-  <h1>Olá, sou um PWA!</h1>
+  <h1>Olá, este é meu PWA!</h1>
+  <p>Funciona no Android e iOS</p>
 
   <script>
-    // Registrar o Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('Service Worker registrado!'))
-        .catch(err => console.log('Erro ao registrar SW:', err));
+        .then(() => console.log('Service Worker registrado!'))
+        .catch(err => console.error('Erro no SW:', err));
     }
   </script>
 </body>
